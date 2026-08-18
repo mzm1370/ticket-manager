@@ -1,0 +1,10 @@
+# Format: path   owner(s)
+# Solo-project placeholder — replace @mzm1370 with team handles as the team grows.
+
+apps/api/                      @mzm1370
+apps/web/                      @mzm1370
+packages/types/                @mzm1370
+packages/ui/                   @mzm1370
+packages/eslint-config/        @mzm1370
+packages/typescript-config/    @mzm1370
+docs/scouting/                 @mzm1370
