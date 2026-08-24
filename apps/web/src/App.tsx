@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div style={{ padding: 24 }}>
-      <h1>Tickets</h1>
+      <h1>My Tickets</h1>
       <ul>
         {tickets.map((t) => (
           <li key={t.id}>

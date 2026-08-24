@@ -1,0 +1,47 @@
+name: Feature Request
+description: Propose a new feature — this starts the Idea & Intake stage
+labels: ["stage:intake"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Motivation
+      description: What problem does this solve? Who is affected?
+    validations:
+      required: true
+  - type: dropdown
+    id: risk-tier
+    attributes:
+      label: Risk tier (PO/PM fills in during triage)
+      options: ["P1 - business critical", "P2 - important", "P3 - low risk", "Not yet assessed"]
+      default: 3
+    validations:
+      required: true
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior (Scouting)
+      description: What does the system do today, if anything related exists?
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior (Scouting)
+      description: What SHOULD it do? Mark anything undecided as "Decision Required".
+    validations:
+      required: true
+  - type: checkboxes
+    id: rfc-check
+    attributes:
+      label: RFC check (see docs/rfcs/0000-template.md)
+      options:
+        - label: Changes a shared package's public API/type (@ticket-manager/types)
+        - label: Introduces new architecture or cross-cutting concern
+        - label: Affects more than one app (api + web)
+        - label: "If any box above is checked: an RFC is required before implementation starts"
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria (Definition of Done — see docs/process/feature-lifecycle.md)
+      description: What must be true for this to count as actually finished?
+    validations:
+      required: true

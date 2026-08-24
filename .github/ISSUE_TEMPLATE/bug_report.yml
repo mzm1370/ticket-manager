@@ -1,0 +1,41 @@
+name: Bug Report
+description: Report broken/incorrect behavior
+labels: ["stage:triage"]
+body:
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: bug-type
+    attributes:
+      label: "Developer: classify this before fixing (see docs/process/bug-triage.md)"
+      description: This determines what you do next — read the triage guide if unsure.
+      options:
+        - "Regression — behavior was correct before, now broken (write a failing test, then fix)"
+        - "Scouting gap — expected behavior was never actually defined (do NOT just guess; escalate to PO first)"
+        - "Missing validation — bad input wasn't rejected (add validation + test)"
+        - "Not yet classified"
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: ["P1 - breaks core flow / data loss", "P2 - workaround exists", "P3 - cosmetic / minor"]
+    validations:
+      required: true
