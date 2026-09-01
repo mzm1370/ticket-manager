@@ -19,3 +19,13 @@ unique constraint, per RFC 0002's ambiguity table decision. Registered
 `UsersModule` in `AppModule`.
 
 **Status:** Done — `user` table confirmed created in MySQL via `SHOW TABLES`.
+
+---
+
+## Step 2: User entity + database table
+
+**What:** Added `User` entity (email, passwordHash, role) with `email`
+unique constraint, per RFC 0002's ambiguity table decision. Registered
+`UsersModule` in `AppModule`.
+
+**Status:** Done — `user` table confirmed created in MySQL via `SHOW TABLES`.
