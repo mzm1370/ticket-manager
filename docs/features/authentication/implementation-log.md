@@ -40,3 +40,20 @@ placeholder (min 8 chars) — still flagged "Decision Required" in RFC 0002.
 
 **Status:** Done — 2/2 new unit tests passing (hash correctness,
 duplicate-email rejection).
+
+---
+
+## Step 4: JWT login endpoint
+
+**What:** `POST /auth/register` and `POST /auth/login`. Login verifies
+password with bcrypt, issues a JWT (1-hour expiry per RFC 0002) embedding
+`sub`, `email`, `role`.
+
+**Debugging note:** Initial 404 was caused by `AuthModule` not actually
+being registered in `app.module.ts` despite the write command appearing
+to run — confirmed via `grep -n "AuthModule" app.module.ts` before
+trusting the file was correct. Worth remembering: always verify a file
+write landed, don't just assume the command succeeded.
+
+**Status:** Done — real end-to-end test: register a user, login, receive
+a valid JWT with correct embedded role.
