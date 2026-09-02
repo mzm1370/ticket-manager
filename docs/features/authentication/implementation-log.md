@@ -57,3 +57,25 @@ write landed, don't just assume the command succeeded.
 
 **Status:** Done — real end-to-end test: register a user, login, receive
 a valid JWT with correct embedded role.
+
+---
+
+## Step 5: Global guard + @Public() decorator
+
+**What:** `JwtAuthGuard` applied app-wide via `APP_GUARD` — every route
+protected by default. `/auth/register` and `/auth/login` explicitly
+marked `@Public()` to opt out.
+
+**Debugging notes (real issues hit, for future reference):**
+1. `jest-e2e.json` needed `transformIgnorePatterns` fixed for pnpm's
+   nested `.pnpm/@nestjs+jwt@<version>/` folder structure — the default
+   Jest exclusion pattern doesn't account for pnpm's layout.
+2. `supertest` needed a default import (`import request from 'supertest'`),
+   not a namespace import (`import * as request from 'supertest'`).
+
+**Status:** Done — proven via `apps/api/test/auth.e2e-spec.ts`, 4/4
+passing: blocks without token, allows public routes, allows with valid
+token, rejects garbage token.
+
+**Known side effect:** `apps/web` is now broken (401) until Step 6 adds
+a login form and attaches the token to requests.
